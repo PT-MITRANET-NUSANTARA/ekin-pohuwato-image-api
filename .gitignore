@@ -29,3 +29,5 @@ dist/
 # IDE files
 .vscode/
 .idea/
+
+uploads/
