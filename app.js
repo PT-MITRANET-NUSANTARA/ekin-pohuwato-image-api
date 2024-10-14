@@ -11,11 +11,11 @@ const app = express();
 // Menggunakan CORS untuk mengizinkan permintaan dari localhost:3000
 app.use(cors({ origin: 'http://localhost:3000' }));
 
-const db = new sqlite3.Database(':memory:');
+const db = new sqlite3.Database('./db.sqlite');
 
 // Membuat tabel untuk menyimpan metadata file
 db.serialize(() => {
-  db.run(`CREATE TABLE files (
+  db.run(`CREATE TABLE IF NOT EXISTS files (
     id TEXT PRIMARY KEY,
     filename TEXT NOT NULL,
     filepath TEXT NOT NULL
